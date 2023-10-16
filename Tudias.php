@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document 2</title>
+    <title>Document</title>
 </head>
 <body>
     <?php
@@ -68,7 +68,9 @@
         keep_track();
         keep_track();
         
+        print("<br>");
         print("<br> <strong> PHP- Constraints </strong> <br>");
+        print("<br>");
         define("MINSIZE", 50);
         echo MINSIZE;
         echo constant("MINSIZE");
@@ -86,8 +88,10 @@
         define("__THREE__", "third value");
         echo constant("2TWO");
         echo(__THREE__);
+        print("<br>");
         
         print("<br> <strong> PHP- Operator Types</strong> <br>");
+        print("<br>");
         $a = 50;
         $b = 25;
         
