@@ -68,14 +68,16 @@
         keep_track();
         keep_track();
         
+        print("<br>");
         print("<br> <strong> PHP- Constraints </strong> <br>");
+        print("<br>");
         define("MINSIZE", 50);
         echo MINSIZE;
         echo constant("MINSIZE");
         
         print("<br><br> Valid and invalid constant names");
         //Valid constant names
-        print(" <br> Valid constant names <br>");
+        print("<br> Valid constant names <br>");
         define("ONE", "first thing <br>");
         define("TWO2", "second thing <br>");
         define("THREE_3", "third thing <br>");
@@ -87,12 +89,13 @@
         echo constant("2TWO");
         echo(__THREE__);
         
+        print("<br>");
         print("<br> <strong> PHP- Operator Types</strong> <br>");
         $a = 50;
         $b = 25;
         
         $c = $a + $b;
-        echo "Addition Operation Result: $c <br/>";
+        echo "<br> Addition Operation Result: $c <br/>";
         $c = $a - $b;
         echo "Subtraction Operation Result: $c <br/>";
         $c = $a * $b;
