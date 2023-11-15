@@ -34,3 +34,6 @@ CREATE TABLE Enrollment (
     FOREIGN KEY(StudentID) REFERENCES Student(StudentID),
     FOREIGN KEY(CourseID) REFERENCES Course(CourseID)
 );
+
+INSERT INTO Student (StudentID, FirstName, LastName, DateOfBirth, Email, Phone)
+VALUES ('21-3496-524', 'Merica', 'Tudias', 'October 13, 2003', 'mericatudias33@gamil.com', '09288288248');
