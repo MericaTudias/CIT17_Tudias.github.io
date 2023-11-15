@@ -36,4 +36,11 @@ CREATE TABLE Enrollment (
 );
 
 INSERT INTO Student (StudentID, FirstName, LastName, DateOfBirth, Email, Phone)
-VALUES ('21-3496-524', 'Merica', 'Tudias', 'October 13, 2003', 'mericatudias33@gamil.com', '09288288248');
+VALUES ('213496524', 'Merica', 'Tudias', 'October 13, 2003', 'mericatudias33@gamil.com', '09288288248');
+
+INSERT INTO Student (StudentID, FirstName, LastName, DateOfBirth, Email, Phone)
+VALUES ('213496524', 'Merica', 'Tudias', 'October 13, 2003', 'mericatudias33@gamil.com', '09288288248');
+
+UPDATE Student
+SET StudentID = '213496524'
+WHERE FirstName = 'Merica';
