@@ -88,9 +88,11 @@
         define("__THREE__", "third value");
         echo constant("2TWO");
         echo(__THREE__);
+        print("<br>");
         
         print("<br>");
         print("<br> <strong> PHP- Operator Types</strong> <br>");
+        print("<br>");
         $a = 50;
         $b = 25;
         
