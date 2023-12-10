@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>StudentForm</title>
+</head>
+<body>
+    <form action="Create.php">
+        <h2>Student Form</h2>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault04">Student ID</label>
+            <input type="int" class="form-control" id="validationDefault04" placeholder="Student ID" name ="StudentID" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault01">First name</label>
+            <input type="varchar" class="form-control" id="validationDefault01" placeholder="First name" name ="FirstName" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault02">Last name</label>
+            <input type="varchar" class="form-control" id="validationDefault02" placeholder="Last name" name ="LastName" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault03">Date of Birth</label>
+            <input type="varchar" class="form-control" id="validationDefault03" placeholder="Date of Birth" name ="DateOfBirth" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefaultUsername">Email</label>
+            <input type="varchar" class="form-control" id="validationDefaultUsername" placeholder="Email" name ="Email" aria-describedby="inputGroupPrepend2" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault05">Phone</label>
+            <input type="varchar" class="form-control" id="validationDefault05" placeholder="Phone" name ="Phone" required>
+          </div>
+        </div>
+          <button class="btn btn-primary" type="submit">Submit form</button>
+      </form>
+</body>
+</html>

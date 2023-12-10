@@ -1,3 +1,8 @@
+CREATE DATABASE database_name;
+USE database_name;
+SHOW DATABASES;
+select * from student;
+
 CREATE TABLE Student (
     StudentID int not null,
     FirstName varchar(255),
@@ -42,5 +47,5 @@ INSERT INTO Student (StudentID, FirstName, LastName, DateOfBirth, Email, Phone)
 VALUES ('213496524', 'Merica', 'Tudias', 'October 13, 2003', 'mericatudias33@gamil.com', '09288288248');
 
 UPDATE Student
-SET StudentID = '213496524'
+SET Email = 'mericatudias33@gmail.com'
 WHERE FirstName = 'Merica';

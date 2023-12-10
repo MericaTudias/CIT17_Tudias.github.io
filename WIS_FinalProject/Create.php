@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "StudentRecord";
+$dbname = "tudias";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,8 +11,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-else
-    echo "Connected successfully", "<br>";
 
 // Example query
 $sql = "SELECT * FROM student";
@@ -31,7 +29,6 @@ if ($result) {
     }
 } 
 
-else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}    
+// Close connection
+$conn->close();
 ?>
