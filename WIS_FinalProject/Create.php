@@ -1,34 +1,23 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "tudias";
+    require_once "Connect.php";
+    if(isset($_POST['submit'])){
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+        $studentid = $_POST['studentid'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $dateofbirth = $_POST['dateofbirth'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Example query
-$sql = "SELECT * FROM student";
-$result = $conn->query($sql);
-
-// Check if the query was successful
-if ($result) {
-    // Process the results
-    while ($row = $result->fetch_assoc()) {
-        echo "Student ID: " . $row["StudentID"]. "<br>"
-        . "First Name: " . $row["FirstName"]. "<br>"
-        . "Last Name: " . $row["LastName"]. "<br>"
-        . "Date of Birth: " . $row["DateOfBirth"]. "<br>"
-        . "Email: " . $row["Email"]. "<br>"
-        . "Phone: " . $row["Phone"]. "<br>";
+        if($studentid != "" && $firstname != "" && $lastname != "" && $dateofbirth != "" && $email != "" && $phone != ""){
+            $sql = "INSERT INTO student (`studentid`, `firstname`, `lastname`, `dateofbirth`, `email`, `phone`) VALUES ('$studentid', '$firstname', '$lastname', '$dateofbirth', '$email', '$phone')";
+            if (mysqli_query($conn, $sql)) {
+                header("location: index.php");
+            } else {
+                 echo "Something went wrong. Please try again later.";
+            }
+        }else{
+            echo "Please fill up the required information!";
+        }
     }
-} 
-
-// Close connection
-$conn->close();
-?>
+?>    
