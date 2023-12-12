@@ -49,3 +49,9 @@ VALUES ('213496524', 'Merica', 'Tudias', 'October 13, 2003', 'mericatudias33@gam
 UPDATE Student
 SET Email = 'mericatudias33@gmail.com'
 WHERE FirstName = 'Merica';
+
+ALTER TABLE Customers
+ADD Email varchar(255);
+
+ALTER TABLE student
+ADD id INT NOT NULL AUTO_INCREMENT PRIMARY KEY;

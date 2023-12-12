@@ -22,31 +22,31 @@
          <form action="Create.php" method="post">
           <div class="row">
             <div class="col-md-4 mb-3">
-                <label for="">Student ID</label>
+                <label for="studentid">Student ID</label>
                 <input type="int" class="form-control" id="studentid" placeholder="Student ID" name ="studentid" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="">First name</label>
+                <label for="firstname">First name</label>
                 <input type="varchar" class="form-control" id="firstname" placeholder="First name" name ="firstname" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="">Last name</label>
+                <label for="lastname">Last name</label>
                 <input type="varchar" class="form-control" id="lastname" placeholder="Last name" name ="lastname" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="">Date of Birth</label>
+                <label for="dateofbirth">Date of Birth</label>
                 <input type="varchar" class="form-control" id="dateofbirth" placeholder="Date of Birth" name ="dateofbirth" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="">Email</label>
+                <label for="email">Email</label>
                 <input type="varchar" class="form-control" id="email" placeholder="Email" name ="email" required>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="">Phone</label>
+                <label for="phone">Phone</label>
                 <input type="varchar" class="form-control" id="phone" placeholder="Phone" name ="phone" required>
             </div>
             <div class="form-group col-lg-2" style="display: grid;align-items:  flex-end;">
-                <input type="submit" name="submit" id="submit" class="btn btn-primary">
+                <input type="submit" name="submitstudent" id="submitstudent" class="btn btn-primary">
             </div>
           </div>
          </form>
@@ -90,6 +90,146 @@
                         <td><?php echo $Phone; ?></td>
                         <td><a href="Update.php?id=<?php echo $StudentID; ?>" class="btn btn-primary">Update</a></td>
                         <td><a href="Delete.php?id=<?php echo $StudentID; ?>" class="btn btn-danger">Delete</a></td>
+                    </tr>
+
+                    <?php
+                            } 
+                        } 
+                    ?>
+                </tbody>
+              </table>
+        </div>
+    </section>
+    <section>
+        <h1 style="text-align: center;margin: 50px 0;">Course Form</h1>
+        <div class="container">
+         <form action="CreateCourse.php" method="post">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="courseid">Course ID</label>
+                <input type="int" class="form-control" id="courseid" placeholder="Course ID" name ="courseid" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="coursename">Course name</label>
+                <input type="varchar" class="form-control" id="coursename" placeholder="Course name" name ="coursename" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="credits">Credits</label>
+                <input type="varchar" class="form-control" id="credits" placeholder="Credits" name ="credits" required>
+            </div>
+            <div class="form-group col-lg-2" style="display: grid;align-items:  flex-end;">
+                <input type="submit" name="submitcourse" id="submitcourse" class="btn btn-primary">
+            </div>
+          </div>
+         </form>
+        </div>
+    </section>
+    <section style="margin: 50px 0;">
+        <div class="container">
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Course name</th>
+                    <th scope="col">Credits</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        require_once "Connect.php";
+                        $sql_query = "SELECT * FROM course";
+                        if ($result = $conn ->query($sql_query)) {
+                            while ($row = $result -> fetch_assoc()) { 
+                                $CourseID = $row['CourseID'];
+                                $CourseName = $row['CourseName'];
+                                $Credits = $row['Credits'];
+                    ?>
+                    
+                    <tr class="trow">
+                        <td><?php echo $CourseID; ?></td>
+                        <td><?php echo $CourseName; ?></td>
+                        <td><?php echo $Credits; ?></td>
+                        <td><a href="UpdateCourse.php?id=<?php echo $CourseID; ?>" class="btn btn-primary">Update</a></td>
+                        <td><a href="DeleteCourse.php?id=<?php echo $CourseID; ?>" class="btn btn-danger">Delete</a></td>
+                    </tr>
+
+                    <?php
+                            } 
+                        } 
+                    ?>
+                </tbody>
+              </table>
+        </div>
+    </section>
+    <section>
+        <h1 style="text-align: center;margin: 50px 0;">Instructor Form</h1>
+        <div class="container">
+         <form action="CreateInstructor.php" method="post">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="instructorid">Instructor ID</label>
+                <input type="int" class="form-control" id="instructorid" placeholder="Instructor ID" name ="instructorid" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="firstname">First name</label>
+                <input type="varchar" class="form-control" id="firstname" placeholder="First name" name ="firstname" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="lastname">Last name</label>
+                <input type="varchar" class="form-control" id="lastname" placeholder="Last name" name ="lastname" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="email">Email</label>
+                <input type="varchar" class="form-control" id="email" placeholder="Email" name ="email" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="phone">Phone</label>
+                <input type="varchar" class="form-control" id="phone" placeholder="Phone" name ="phone" required>
+            </div>
+            <div class="form-group col-lg-2" style="display: grid;align-items:  flex-end;">
+                <input type="submit" name="submitinstructor" id="submitinstructor" class="btn btn-primary">
+            </div>
+          </div>
+         </form>
+        </div>
+    </section>
+    <section style="margin: 50px 0;">
+        <div class="container">
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Instructor ID</th>
+                    <th scope="col">First name</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        require_once "Connect.php";
+                        $sql_query = "SELECT * FROM instructor";
+                        if ($result = $conn ->query($sql_query)) {
+                            while ($row = $result -> fetch_assoc()) { 
+                                $InstructorID = $row['InstructorID'];
+                                $FirstName = $row['FirstName'];
+                                $LastName = $row['LastName'];
+                                $Email = $row['Email'];
+                                $Phone = $row['Phone'];
+                    ?>
+                    
+                    <tr class="trow">
+                        <td><?php echo $InstructorID; ?></td>
+                        <td><?php echo $FirstName; ?></td>
+                        <td><?php echo $LastName; ?></td>
+                        <td><?php echo $Email; ?></td>
+                        <td><?php echo $Phone; ?></td>
+                        <td><a href="UpdateInstructor.php?id=<?php echo $InstructorID; ?>" class="btn btn-primary">Update</a></td>
+                        <td><a href="DeleteInstructor.php?id=<?php echo $InstructorID; ?>" class="btn btn-danger">Delete</a></td>
                     </tr>
 
                     <?php

@@ -2,14 +2,13 @@
 <html lang="en">
 <?php
     require_once "Connect.php";
-    if(isset($_POST["studentid"]) && isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["dateofbirth"]) && isset($_POST["email"]) && isset($_POST["phone"])){
-        $studentid = $_POST['studentid'];
+    if(isset($_POST["instructorid"]) && isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["phone"])){
+        $instructorid = $_POST['instructorid'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $dateofbirth = $_POST['dateofbirth'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
-        $sql = "UPDATE student SET `studentid`= '$studentid', `firstname`= '$firstname', `lastname`= '$lastname', `dateofbirth`= '$dateofbirth', `email`= '$email', `phone`= '$phone' WHERE studentid = ".$_GET["id"];
+        $sql = "UPDATE instructor SET `instructorid`= '$instructorid', `firstname`= '$firstname', `lastname`= '$lastname', `email`= '$email', `phone`= '$phone' WHERE instructorid = ".$_GET["id"];
         if (mysqli_query($conn, $sql)) {
             header("location: index.php");
         } else {
@@ -37,21 +36,20 @@
         <div class="container">
             <?php 
                 require_once "Connect.php";
-                $sql_query = "SELECT * FROM student WHERE studentid = ".$_GET["id"];
+                $sql_query = "SELECT * FROM instructor WHERE instructorid = ".$_GET["id"];
                 if ($result = $conn ->query($sql_query)) {
                     while ($row = $result -> fetch_assoc()) { 
-                        $StudentID = $row['StudentID'];
+                        $InstructorID = $row['InstructorID'];
                         $FirstName = $row['FirstName'];
                         $LastName = $row['LastName'];
-                        $DateOfBirth = $row['DateOfBirth'];
                         $Email = $row['Email'];
                         $Phone = $row['Phone'];
             ?>
-                            <form action="Update.php?id=<?php echo $StudentID; ?>" method="post">
+                            <form action="UpdateInstructor.php?id=<?php echo $InstructorID; ?>" method="post">
                                 <div class="row">
                                         <div class="col-md-4 mb-3">
-                                            <label for="">Student ID</label>
-                                            <input type="int" class="form-control" id="studentid" placeholder="Student ID" name ="studentid" required>
+                                            <label for="">Instructor ID</label>
+                                            <input type="int" class="form-control" id="instructorid" placeholder="Instructor ID" name ="instructorid" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="">First name</label>
@@ -60,10 +58,6 @@
                                         <div class="col-md-4 mb-3">
                                             <label for="">Last name</label>
                                             <input type="varchar" class="form-control" id="lastname" placeholder="Last name" name ="lastname" required>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label for="">Date of Birth</label>
-                                            <input type="varchar" class="form-control" id="dateofbirth" placeholder="Date of Birth" name ="dateofbirth" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="">Email</label>

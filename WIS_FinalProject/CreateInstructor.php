@@ -1,16 +1,15 @@
 <?php
     require_once "Connect.php";
-    if(isset($_POST['submitstudent'])){
+    if(isset($_POST['submitinstructor'])){
 
-        $studentid = $_POST['studentid'];
+        $instructorid = $_POST['instructorid'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $dateofbirth = $_POST['dateofbirth'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
 
-        if($studentid != "" && $firstname != "" && $lastname != "" && $dateofbirth != "" && $email != "" && $phone != ""){
-            $sql = "INSERT INTO student (`studentid`, `firstname`, `lastname`, `dateofbirth`, `email`, `phone`) VALUES ('$studentid', '$firstname', '$lastname', '$dateofbirth', '$email', '$phone')";
+        if($instructorid != "" && $firstname != "" && $lastname != "" && $email != "" && $phone != ""){
+            $sql = "INSERT INTO instructor (`instructorid`, `firstname`, `lastname`, `email`, `phone`) VALUES ('$instructorid', '$firstname', '$lastname', '$email', '$phone')";
             if (mysqli_query($conn, $sql)) {
                 header("location: index.php");
             } else {
